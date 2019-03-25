@@ -315,6 +315,7 @@ view: orders_v2 {
     type: string
     sql: ${TABLE}.ship_to_country_code ;;
     view_label: "Customer"
+    map_layer_name: countries
   }
 
   dimension: ship_to_county {
@@ -322,6 +323,7 @@ view: orders_v2 {
     type: string
     sql: ${TABLE}.ship_to_county ;;
     view_label: "Customer"
+    map_layer_name: us_states
   }
 
   dimension: ship_to_first_name {
@@ -347,6 +349,7 @@ view: orders_v2 {
     type: string
     sql: ${TABLE}.ship_to_postcode ;;
     view_label: "Customer"
+    map_layer_name: us_zipcode_tabulation_areas
   }
 
   dimension_group: shipbob_est_delivery {
