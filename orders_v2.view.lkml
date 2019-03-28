@@ -399,7 +399,7 @@ view: orders_v2 {
       year
     ]
     sql: CASE WHEN ${TABLE}.shipping_date IS NOT NULL THEN ${TABLE}.shipping_date WHEN ${TABLE}.ship_date IS NOT NULL
-    THEN ${TABLE}.ship_date END;;
+      THEN ${TABLE}.ship_date END;;
     view_label: "Shipping"
   }
 
