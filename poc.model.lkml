@@ -34,6 +34,14 @@ explore: orders_v2 {
   }
 }
 
+explore: orders_v3 {
+
+  join: order_item {
+    relationship: one_to_many
+    sql: LEFT JOIN UNNEST(${orders_v3.order_item}) as order_item ;;
+  }
+
+}
 
 #explore: sku_breakout {}
 
