@@ -2,6 +2,12 @@ view: orders_v2 {
   view_label: "Orders"
   sql_table_name: moltin.orders_v2 ;;
 
+  dimension: revenue_flag {
+    type: yesno
+    sql:${TABLE}.payment in ('paid','refunded') and (${TABLE}.discount_code not in ('SPPAhn00','SPPAHN00','CUST99EXP2018') or ${TABLE}.discount_code is null) ;;
+    view_label: "Revenue"
+  }
+
   dimension: id {
     primary_key: yes
     type: string
