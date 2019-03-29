@@ -558,7 +558,7 @@ WHERE row_num = 1 ;;
     sql: ${order_item.item_amount} ;;
   }
 
-  dimension: number_of_orders {
+  dimension: number_of_items {
     type: string
     sql: (select count(*) from unnest(${order_item})) ;;
   }
