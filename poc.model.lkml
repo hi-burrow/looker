@@ -2,7 +2,7 @@ connection: "bq_moltin"
 
 # include all the views
 include: "*.view"
-
+week_start_day: sunday
 datagroup: poc_default_datagroup {
   # sql_trigger: SELECT MAX(id) FROM etl_log;;
   max_cache_age: "1 hour"
@@ -16,6 +16,7 @@ persist_with: poc_default_datagroup
 #explore: order_items_v2 {}
 
 explore: orders_v2 {
+
   label: "Orders"
   join: orders_v2_items {
     view_label: "Orders"
@@ -35,6 +36,7 @@ explore: orders_v2 {
   join: four_five_four {
     view_label: "454"
     sql_on: ${order_items_v2.created_date} = ${four_five_four.day_date} ;;
+    type: inner
     relationship: one_to_many
   }
 }

@@ -95,6 +95,7 @@ view: orders_v2 {
 
   dimension_group: order {
     type: time
+    convert_tz: yes
     timeframes: [
       raw,
       time,
