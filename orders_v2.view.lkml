@@ -404,8 +404,7 @@ view: orders_v2 {
       quarter,
       year
     ]
-    sql: CASE WHEN ${TABLE}.shipping_date IS NOT NULL THEN ${TABLE}.shipping_date WHEN ${TABLE}.ship_date IS NOT NULL
-      THEN ${TABLE}.ship_date END;;
+    sql: CASE WHEN ${TABLE}.ship_date IS NOT NULL AND ${TABLE}.shipping_date IS NULL THEN ${TABLE}.ship_date WHEN ${TABLE}.shipping_date IS NOT NULL AND ${TABLE}.ship_date IS NULL THEN ${TABLE}.shipping_date ELSE END;;
     view_label: "Shipping"
   }
 

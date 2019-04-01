@@ -11,9 +11,9 @@ datagroup: poc_default_datagroup {
 persist_with: poc_default_datagroup
 
 
-explore: sku_v2 {}
+#explore: sku_v2 {}
 
-explore: order_items_v2 {}
+#explore: order_items_v2 {}
 
 explore: orders_v2 {
   label: "Orders"
@@ -30,6 +30,11 @@ explore: orders_v2 {
   join: sku_v2 {
     view_label: "SKU"
     sql_on:  ${order_items_v2.sku} = ${sku_v2.sku} ;;
+    relationship: one_to_many
+  }
+  join: four_five_four {
+    view_label: "454"
+    sql_on: ${order_items_v2.created_date} = ${four_five_four.day_date} ;;
     relationship: one_to_many
   }
 }
